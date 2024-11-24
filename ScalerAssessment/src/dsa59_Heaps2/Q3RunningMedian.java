@@ -1,4 +1,4 @@
-package dsa59Heaps2;
+package dsa59_Heaps2;
 
 import java.util.ArrayList;
 import java.util.Collections;

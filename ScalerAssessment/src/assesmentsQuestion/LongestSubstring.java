@@ -1,9 +1,29 @@
 package assesmentsQuestion;
 
+import java.util.HashMap;
+
 public class LongestSubstring {
 
 	public static void main(String[] args) {
 		
+	String A= "abcabc2Ab";
+	int start=0, max=0 ;
+	HashMap<Character, Integer> m =new HashMap();
+	for(int i=0; i<A.length(); i++) {
+		char c = A.charAt(i);
+		m.put(c, m.getOrDefault(c, 0)+1);
+		
+		while(m.get(c)>2) {
+			char s = A.charAt(start);
+			m.put(s, m.get(s)-1);
+			
+			if(m.get(s)==0) m.remove(s);
+			start++;
+		}
+		
+		max = Math.max(max, i-start+1);
+	}
+	System.out.println(max);
 	}
 
 }

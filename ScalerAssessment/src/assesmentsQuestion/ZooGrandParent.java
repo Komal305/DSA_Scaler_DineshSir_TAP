@@ -1,10 +1,32 @@
 package assesmentsQuestion;
 
 public class ZooGrandParent {
+	
+	class TreeNode{
+		int val;
+		TreeNode right;
+		TreeNode left;
+		TreeNode(int val){
+			this.val = val;
+			this.left = null;
+			right = null;
+		}
+	}
 
 	public static void main(String[] args) {
 		
 
+	}
+	
+	static int dfs(TreeNode  A, TreeNode parent, TreeNode grandPa) {
+		if(A==null) return 0;
+		 int sum=0;
+		 if( grandPa != null  && grandPa.val%2==0)sum+=A.val;
+		 
+		 sum += dfs(A.left, A, parent);
+		 sum += dfs(A.right, A, parent);
+		 
+		 return sum;
 	}
 
 }
